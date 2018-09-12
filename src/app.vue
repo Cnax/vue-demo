@@ -1,5 +1,7 @@
 <template>
-  <div id="text">{{text}}</div>
+  <div class="app">
+    <div class="cover"></div>
+  </div>
 </template>
 
 <script>
@@ -12,8 +14,21 @@
   }
 </script>
 
-<style>
-#text {
-  color: #f00;
-}
+<style lang="stylus" scoped>
+  .app
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
+  .cover
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
+    background-color #999
+    opacity .9
+    z-index -1
+
 </style>
