@@ -45,12 +45,6 @@ var config = {
         use: [
           'style-loader',
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
           'stylus-loader',
         ],
       },

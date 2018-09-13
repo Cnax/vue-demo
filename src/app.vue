@@ -15,13 +15,13 @@
 </script>
 
 <style lang="stylus" scoped>
-  .app
+  .app 
     position absolute
     top 0
     left 0
     bottom 0
     right 0
-  .cover
+  .cover 
     position absolute
     top 0
     left 0
