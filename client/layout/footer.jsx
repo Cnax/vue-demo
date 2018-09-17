@@ -1,16 +1,16 @@
-import '../assets/styles/footer.styl';
+import style from '../assets/styles/footer.styl'
 
 export default {
-  data() {
+  data () {
     return {
-      author: 'jj',
+      author: 'jj'
     }
   },
-  render() {
+  render () {
     return (
-      <div id="footer">
+      <div id={style.footer}>
         <span>writen By {this.author}</span>
       </div>
-    );
+    )
   }
 }

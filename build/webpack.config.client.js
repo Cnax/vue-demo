@@ -37,8 +37,14 @@ if (isDev) {
       rules: [{
         test: /\.styl(us)?$/,
         use: [
-          'style-loader',
-          'css-loader',
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              module: true,
+              localIdentName: '[path]-[name]-[hash:base64:5]',
+            },
+          },
           {
             loader: 'postcss-loader',
             options: {
@@ -69,9 +75,15 @@ if (isDev) {
         {
           test: /\.styl(us)?$/,
           use: ExtractPlugin.extract({
-            fallback: 'style-loader',
+            fallback: 'vue-style-loader',
             use: [
-              'css-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  module: true,
+                  localIdentName: '[hash:base64:8]',
+                },
+              },
               {
                 loader: 'postcss-loader',
                 options: {

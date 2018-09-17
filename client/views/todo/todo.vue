@@ -23,47 +23,47 @@
 </template>
 
 <script>
-  import Item from './item.vue';
-  import Tabs from './tabs.vue';
-  const defaultFilter = 'all';
-  let id = 0;
-  export default {
-    data() {
+  import Item from './item.vue'
+import Tabs from './tabs.vue'
+const defaultFilter = 'all'
+let id = 0
+export default {
+    data () {
       return {
         todos: [],
-        filter: defaultFilter,
+        filter: defaultFilter
       }
     },
     components: {
       Item,
-      Tabs,
+      Tabs
     },
     methods: {
-      addTodo(e) {
+      addTodo (e) {
         this.todos = [{
           id: id++,
           content: e.target.value.trim(),
-          completed: false,
-        }, ...this.todos];
-        e.target.value = '';
+          completed: false
+        }, ...this.todos]
+        e.target.value = ''
       },
-      deleteSingleTodo(id) {
-        this.todos = this.todos.filter(item => item.id !== id);
+      deleteSingleTodo (id) {
+        this.todos = this.todos.filter(item => item.id !== id)
       },
-      toggleFilter(state) {
-        this.filter = state;
+      toggleFilter (state) {
+        this.filter = state
       },
-      clearAllCompleted() {
-        this.todos = this.todos.filter(item => !item.completed);
+      clearAllCompleted () {
+        this.todos = this.todos.filter(item => !item.completed)
       }
     },
     computed: {
-      filteredTodos() {
+      filteredTodos () {
         if (this.filter === defaultFilter) {
-          return this.todos;
+          return this.todos
         }
-        const isCompleted = this.filter === 'completed';
-        return this.todos.filter(item => isCompleted === item.completed);
+        const isCompleted = this.filter === 'completed'
+        return this.todos.filter(item => isCompleted === item.completed)
       }
     }
   }

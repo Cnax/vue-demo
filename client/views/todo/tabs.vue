@@ -22,29 +22,29 @@
     props: {
       filter: {
         type: String,
-        required: true,
+        required: true
       },
       todos: {
         type: Array,
-        required: true,
+        required: true
       }
     },
     methods: {
-      toggleFilter(state) {
-        this.$emit('toggle', state);
+      toggleFilter (state) {
+        this.$emit('toggle', state)
       },
-      clearAllCompleted() {
-        this.$emit('clearAllCompleted');
-      },
+      clearAllCompleted () {
+        this.$emit('clearAllCompleted')
+      }
     },
-    data() {
+    data () {
       return {
-        states: ['all','active','completed']
+        states: ['all', 'active', 'completed']
       }
     },
     computed: {
-      unCompletedTodosLenth() {
-        return this.todos.filter(item => item.id !== 'completed').length;
+      unCompletedTodosLenth () {
+        return this.todos.filter(item => item.id !== 'completed').length
       }
     }
   }
