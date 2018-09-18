@@ -9,7 +9,7 @@ var config = {
   entry: path.join(__dirname, '../client/index.js'),
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, '../dist')
+    path: path.join(__dirname, '../dist'),
   },
   module: {
     rules: [
@@ -18,12 +18,12 @@ var config = {
         loader: 'eslint-loader',
         exclude: /node_modules/,
         // 在其他loader处理前处理
-        enforce: 'pre'
+        enforce: 'pre',
       },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: createVueLoaderOptions(isDev)
+        options: createVueLoaderOptions(isDev),
       },
       {
         test: /\.jsx$/,
@@ -38,7 +38,7 @@ var config = {
               limit: 1024,
               name: 'resource/[path][name].[ext]',
             },
-          }
+          },
         ],
       },
     ],

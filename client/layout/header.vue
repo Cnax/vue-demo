@@ -4,8 +4,16 @@
   </header>
 </template>
 
+<script>
+export default {
+  created () {
+    console.log(this.$style);
+  },
+};
+</script>
+
 <style lang="stylus" module>
-  .main-header {
+  .mainHeader {
     text-align: center;
     h1 {
       font-size: 100px;

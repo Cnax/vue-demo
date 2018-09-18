@@ -1,8 +1,8 @@
 <template>
-  <div class="real-app">
+  <div :class="$style.realApp">
     <input
       type="text"
-      class="add-input"
+      :class="$style.addInput"
       autofocus="autofocus"
       placeholder="接下去要做什么"
       @keyup.enter="addTodo"
@@ -23,59 +23,59 @@
 </template>
 
 <script>
-  import Item from './item.vue'
-import Tabs from './tabs.vue'
-const defaultFilter = 'all'
-let id = 0
+import Item from './item.vue';
+import Tabs from './tabs.vue';
+const defaultFilter = 'all';
+let id = 0;
 export default {
-    data () {
-      return {
-        todos: [],
-        filter: defaultFilter
-      }
+  data () {
+    return {
+      todos: [],
+      filter: defaultFilter,
+    };
+  },
+  components: {
+    Item,
+    Tabs,
+  },
+  methods: {
+    addTodo (e) {
+      this.todos = [{
+        id: id++,
+        content: e.target.value.trim(),
+        completed: false,
+      }, ...this.todos ];
+      e.target.value = '';
     },
-    components: {
-      Item,
-      Tabs
+    deleteSingleTodo (id) {
+      this.todos = this.todos.filter(item => item.id !== id);
     },
-    methods: {
-      addTodo (e) {
-        this.todos = [{
-          id: id++,
-          content: e.target.value.trim(),
-          completed: false
-        }, ...this.todos]
-        e.target.value = ''
-      },
-      deleteSingleTodo (id) {
-        this.todos = this.todos.filter(item => item.id !== id)
-      },
-      toggleFilter (state) {
-        this.filter = state
-      },
-      clearAllCompleted () {
-        this.todos = this.todos.filter(item => !item.completed)
-      }
+    toggleFilter (state) {
+      this.filter = state;
     },
-    computed: {
-      filteredTodos () {
-        if (this.filter === defaultFilter) {
-          return this.todos
-        }
-        const isCompleted = this.filter === 'completed'
-        return this.todos.filter(item => isCompleted === item.completed)
+    clearAllCompleted () {
+      this.todos = this.todos.filter(item => !item.completed);
+    },
+  },
+  computed: {
+    filteredTodos () {
+      if (this.filter === defaultFilter) {
+        return this.todos;
       }
-    }
-  }
+      const isCompleted = this.filter === 'completed';
+      return this.todos.filter(item => isCompleted === item.completed);
+    },
+  },
+};
 </script>
 
-<style lang="stylus" scoped>
-.real-app {
+<style lang="stylus" module>
+.realApp {
   width: 600px;
   margin: 0 auto;
   box-shadow: 0 0 5px #666;  
 }
-.add-input {
+.addInput {
   position: relative;
   margin: 0;
   width: 100%;

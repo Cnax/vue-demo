@@ -1,17 +1,17 @@
 <template>
-  <div class="helper">
-    <span class="left">{{unCompletedTodosLenth}} items left</span>
-    <span class="tabs">
+  <div :class="$style.helper">
+    <span :class="$style.left">{{unCompletedTodosLenth}} items left</span>
+    <span :class="$style.tabs">
       <span
         :key="state"
         v-for="state in states"
-        :class="[state, filter === state ? 'actived' : '']"
+        :class="[$style.state, filter === state ? $style.actived : '']"
         @click="toggleFilter(state)"
       >
         {{state}}
       </span>
     </span>
-    <span class="clear" @click="clearAllCompleted">
+    <span :class="$style.clear" @click="clearAllCompleted">
       clear All Completed
     </span>
   </div>
@@ -22,35 +22,35 @@
     props: {
       filter: {
         type: String,
-        required: true
+        required: true,
       },
       todos: {
         type: Array,
-        required: true
-      }
+        required: true,
+      },
     },
     methods: {
       toggleFilter (state) {
-        this.$emit('toggle', state)
+        this.$emit('toggle', state);
       },
       clearAllCompleted () {
-        this.$emit('clearAllCompleted')
-      }
+        this.$emit('clearAllCompleted');
+      },
     },
     data () {
       return {
-        states: ['all', 'active', 'completed']
-      }
+        states: ['all', 'active', 'completed'],
+      };
     },
     computed: {
       unCompletedTodosLenth () {
-        return this.todos.filter(item => item.id !== 'completed').length
-      }
-    }
-  }
+        return this.todos.filter(item => item.id !== 'completed').length;
+      },
+    },
+  };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" module>
 .helper {
   font-weight: 100;
   display: flex;

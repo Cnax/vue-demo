@@ -1,6 +1,6 @@
 <template>
-  <div class="app">
-    <div class="cover"></div>
+  <div :class="$style.app">
+    <div :class="$style.cover"></div>
     <Header></Header>
     <Todo></Todo>
     <Footer></Footer>
@@ -8,24 +8,24 @@
 </template>
 
 <script>
-import Header from './layout/header.vue'
-import Footer from './layout/footer.jsx'
-import Todo from './views/todo/todo.vue'
+import Header from './layout/header.vue';
+import Footer from './layout/footer.jsx';
+import Todo from './views/todo/todo.vue';
 export default {
   data () {
     return {
-      text: 'text'
-    }
+      text: 'text',
+    };
   },
   components: {
     Header,
     Footer,
-    Todo
-  }
-}
+    Todo,
+  },
+};
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" module>
 .app {
   position: absolute;
   top: 0;

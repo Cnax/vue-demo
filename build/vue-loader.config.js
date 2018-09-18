@@ -4,8 +4,8 @@ module.exports = (isDev) => {
     extractCss: !isDev,
     cssModules: {
       localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
-      camelCase: true
-    }
+      camelCase: true,
+    },
     // hotReload: false,   根据环境变量自动生成
   };
-}
+};
