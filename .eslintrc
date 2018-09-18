@@ -8,6 +8,7 @@
     "semi": [2, "always"],
     "no-use-before-define": 2,
     "object-shorthand": 0,
-    "comma-dangle": [2, "always-multiline"]
+    "comma-dangle": [2, "always-multiline"],
+    "no-new": 0
   }
 }
