@@ -1,6 +1,6 @@
-import Vue from 'vue';
-
-new Vue({
-  el: '#root',
-  template: '<div>this is practice </div>',
-});
+// import './lifeCycle';
+// import './dataBinding';
+// import './computed';
+import './component';
+// import './v-model';
+// import './features';

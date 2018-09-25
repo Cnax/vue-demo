@@ -28,6 +28,20 @@ import Tabs from './tabs.vue';
 const defaultFilter = 'all';
 let id = 0;
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before route enter', this);
+    next(vm => {
+      console.log('vm berore route enter ', vm);
+    });
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('todo before route update', this);
+    next();
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo before route leave', this);
+    next();
+  },
   data () {
     return {
       todos: [],
@@ -73,7 +87,7 @@ export default {
 .realApp {
   width: 600px;
   margin: 0 auto;
-  box-shadow: 0 0 5px #666;  
+  box-shadow: 0 0 5px #666;
 }
 .addInput {
   position: relative;

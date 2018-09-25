@@ -6,7 +6,7 @@ var ExtractPlugin = require('extract-text-webpack-plugin');
 var merge = require('webpack-merge');
 var baseConfig = require('./webpack.config.base.js');
 
-var isDev = process.env.NODE_DEV === 'development';
+var isDev = process.env.mode === 'development';
 
 var defaultPlugins = [
   new VueLoaderPlugin(),
@@ -15,7 +15,9 @@ var defaultPlugins = [
       NODE_DEV: isDev ? '"development"' : '"production"',
     },
   }),
-  new HTMLPlugin(),
+  new HTMLPlugin({
+    template: path.join(__dirname, './index.html'),
+  }),
 ];
 
 var devServer = {
@@ -23,6 +25,10 @@ var devServer = {
   host: '0.0.0.0',
   overlay: {
     errors: true,
+  },
+  // vue-router的mode=history需要添加
+  historyApiFallback: {
+    index: '/public/index.html',
   },
   hot: true,
 };
@@ -63,6 +69,7 @@ if (isDev) {
   });
 } else {
   config = merge(baseConfig, {
+    mode: 'production',
     entry: {
       app: path.join(__dirname, '../client/index.js'),
     },
